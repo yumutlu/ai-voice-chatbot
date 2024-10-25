@@ -1,4 +1,4 @@
-from fastapi import APIRouter
+from fastapi import APIRouter # type: ignore
 from app.api.api_v1.endpoints import chat, audio
 
 router = APIRouter()
