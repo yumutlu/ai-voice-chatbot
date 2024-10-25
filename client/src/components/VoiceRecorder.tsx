@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Box, Button, VStack, useToast } from '@chakra-ui/react';
+import { Box, Button, VStack, } from '@chakra-ui/react';
 import WaveSurfer from 'wavesurfer.js';
 
 interface VoiceRecorderProps {
@@ -64,12 +64,13 @@ const VoiceRecorder: React.FC<VoiceRecorderProps> = ({ onRecordingComplete }) =>
                 description: 'Could not access microphone',
                 status: 'error',
                 duration: 3000,
+                isClosable: true,
             });
         }
     };
 
     const stopRecording = () => {
-        if (mediaRecorder && isRecording) {
+        if (mediaRecorder && mediaRecorder.state === 'recording') {
             mediaRecorder.stop();
             setIsRecording(false);
         }
@@ -105,3 +106,7 @@ const VoiceRecorder: React.FC<VoiceRecorderProps> = ({ onRecordingComplete }) =>
 };
 
 export default VoiceRecorder;
+function useToast() {
+    throw new Error('Function not implemented.');
+}
+
