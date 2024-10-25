@@ -1,4 +1,4 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException # type: ignore
 from app.schemas.chat import ChatRequest, ChatResponse
 
 router = APIRouter()
